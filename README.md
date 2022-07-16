@@ -1,6 +1,6 @@
 # comic_app
 
-A new Flutter project.
+It pretends to be a flutter app for reading comics but actually shows only the covers of the comics and some details
 
 ## Getting Started
 
