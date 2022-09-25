@@ -17,25 +17,18 @@ class UserInfo extends StatelessWidget {
           child: UserImage(),
         ),
         Container(
-          margin: EdgeInsets.only(top: 20),
-          child: const Text(
-            'John Doe',
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold
-            ),
-          )
-        ),
+            margin: EdgeInsets.only(top: 20),
+            child: const Text(
+              'John Doe',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            )),
         Container(
           margin: EdgeInsets.only(top: 5),
           child: const Text(
             'Villain of the movie "Seven"',
-            style: TextStyle(
-              color: Colors.blueGrey,
-              fontSize: 15
-            ),
+            style: TextStyle(color: Colors.blueGrey, fontSize: 15),
           ),
-        )
+        ),
       ],
     );
   }

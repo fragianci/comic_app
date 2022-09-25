@@ -2,7 +2,6 @@ import 'package:comic_app/model/button_settings_data.dart';
 import 'package:comic_app/widgets/profile_header.dart';
 import 'package:comic_app/widgets/user_info.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class MyProfile extends StatefulWidget {
@@ -13,7 +12,8 @@ class MyProfile extends StatefulWidget {
   State<MyProfile> createState() => _MyProfileState(goToMyHome);
 }
 
-class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMixin {
+class _MyProfileState extends State<MyProfile>
+    with SingleTickerProviderStateMixin {
   final Function() goToMyHome;
   bool settingsOpened = false;
   late AnimationController _controller;
@@ -26,18 +26,18 @@ class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMix
       icon: Icons.lock,
     ),
     ButtonSettingsData(
-      title: 'Address',
-      label: 'Address data',
-      icon: Icons.location_on_outlined
-    ),
+        title: 'Address',
+        label: 'Address data',
+        icon: Icons.location_on_outlined),
   ];
   _MyProfileState(this.goToMyHome);
-  
+
   void initState() {
     // TODO: implement initState
     super.initState();
     _controller = AnimationController(vsync: this, duration: _duration);
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,51 +55,49 @@ class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMix
 
   Expanded settings() {
     return Expanded(
-            child: SizedBox.expand(
-              child: Stack(
-                children: <Widget>[
-                  SizedBox.expand(
-                    child: SlideTransition(
-                      position: _tween.animate(_controller),
-                      child: DraggableScrollableSheet(
-                        builder: (BuildContext context, ScrollController scrollController) {
-                          return Container(
-                            margin: EdgeInsets.only(top: 10),
-                            width: 0,
-                            height: 566,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(40),
-                                topRight: Radius.circular(40),
-                            ),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [
-                                Color.fromARGB(255, 255, 149, 100),
-                                Color.fromARGB(255, 247, 103, 103),
-                              ],
-                            ),
-                            ),
-                            child: ListView.builder(
-                              controller: scrollController,
-                              itemCount: buttonsSettings.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Container(
-                                  width: 50,
-                                  child: buttonSetting(buttonsSettings[index])
-                                );
-                              },
-                            ),
-                          );
-                        },
+      child: SizedBox.expand(
+        child: Stack(children: <Widget>[
+          SizedBox.expand(
+            child: SlideTransition(
+              position: _tween.animate(_controller),
+              child: DraggableScrollableSheet(
+                builder:
+                    (BuildContext context, ScrollController scrollController) {
+                  return Container(
+                    margin: EdgeInsets.only(top: 10),
+                    width: 0,
+                    height: 566,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(40),
+                        topRight: Radius.circular(40),
+                      ),
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.fromARGB(255, 255, 149, 100),
+                          Color.fromARGB(255, 247, 103, 103),
+                        ],
                       ),
                     ),
-                  ),
-                ]
+                    child: ListView.builder(
+                      controller: scrollController,
+                      itemCount: buttonsSettings.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                            width: 50,
+                            child: buttonSetting(buttonsSettings[index]));
+                      },
+                    ),
+                  );
+                },
               ),
             ),
-          );
+          ),
+        ]),
+      ),
+    );
   }
 
   Container buttonSetting(buttonSettings) {
@@ -117,7 +115,7 @@ class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMix
             borderRadius: BorderRadius.circular(50.0),
           ),
         ),
-        onPressed: (){
+        onPressed: () {
           print(buttonSettings.title);
         },
         child: Row(
@@ -163,15 +161,15 @@ class _MyProfileState extends State<MyProfile> with SingleTickerProviderStateMix
             ),
           ],
         ),
-        ),
+      ),
     );
   }
-  
-  void openSettings(_mycontroller, myduration){
+
+  void openSettings(_mycontroller, myduration) {
     setState(() {
-      settingsOpened = !settingsOpened;    
+      settingsOpened = !settingsOpened;
       _controller = _mycontroller;
-      _duration = myduration;  
+      _duration = myduration;
     });
   }
 }
