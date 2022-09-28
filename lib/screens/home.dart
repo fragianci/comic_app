@@ -1,7 +1,8 @@
 import 'package:comic_app/model/models.dart';
-import 'package:comic_app/pages/comics_by_genre.dart';
-import 'package:comic_app/pages/comics_list.dart';
-import 'package:comic_app/pages/my_profile.dart';
+import 'package:comic_app/screens/comics_by_genre.dart';
+import 'package:comic_app/screens/comics_list.dart';
+import 'package:comic_app/screens/library.dart';
+import 'package:comic_app/screens/my_profile.dart';
 import 'package:comic_app/widgets/home_header.dart';
 import 'package:comic_app/widgets/navbar.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class HomeState extends State<Home> {
   }
 
   bool userImageClicked = false;
+  bool isItInLibrary = false;
   ComicsData currentGenre;
   final List<ComicsData> comics = [
     ComicsData(genre: 'All', isActive: true, genreId: 5),
@@ -37,15 +39,17 @@ class HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: !userImageClicked
-          ? Column(
-              children: [
-                Header(switchHomeAndProfile),
-                NavBar(changeGenre, comics, currentGenre),
-                currentGenre.genre == 'All'
-                    ? Expanded(child: ComicsList())
-                    : ComicsByGenre(currentGenre),
-              ],
-            )
+          ? !isItInLibrary
+              ? Column(
+                  children: [
+                    Header(switchHomeAndProfile, switchHomeAndLibrary),
+                    NavBar(changeGenre, comics, currentGenre),
+                    currentGenre.genre == 'All'
+                        ? Expanded(child: ComicsList())
+                        : ComicsByGenre(currentGenre),
+                  ],
+                )
+              : Library(switchHomeAndLibrary)
           : MyProfile(switchHomeAndProfile),
     );
   }
@@ -53,6 +57,12 @@ class HomeState extends State<Home> {
   void switchHomeAndProfile() {
     setState(() {
       userImageClicked = !userImageClicked;
+    });
+  }
+
+  void switchHomeAndLibrary() {
+    setState(() {
+      isItInLibrary = !isItInLibrary;
     });
   }
 

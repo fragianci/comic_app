@@ -1,5 +1,5 @@
 import 'package:comic_app/model/models.dart';
-import 'package:comic_app/pages/home.dart';
+import 'package:comic_app/screens/home.dart';
 import 'package:comic_app/providers/wishlist_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

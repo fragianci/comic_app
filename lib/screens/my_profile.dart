@@ -1,5 +1,5 @@
 import 'package:comic_app/model/models.dart';
-import 'package:comic_app/widgets/profile_header.dart';
+import 'package:comic_app/widgets/personal_header.dart';
 import 'package:comic_app/widgets/user_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -44,7 +44,7 @@ class _MyProfileState extends State<MyProfile>
       body: Container(
         child: Column(
           children: [
-            ProfileHeader(openSettings, goToMyHome),
+            PersonalHeader(false, openSettings, goToMyHome),
             UserInfo(),
             settings()
           ],

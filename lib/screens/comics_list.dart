@@ -1,6 +1,6 @@
 import 'package:comic_app/model/models.dart';
 import 'package:comic_app/widgets/chip.dart';
-import 'package:comic_app/pages/comic_detail.dart';
+import 'package:comic_app/screens/comic_detail.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
