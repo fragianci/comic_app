@@ -1,4 +1,4 @@
-import 'package:comic_app/model/comics_data.dart';
+import 'package:comic_app/model/models.dart';
 import 'package:comic_app/pages/comics_by_genre.dart';
 import 'package:comic_app/pages/comics_list.dart';
 import 'package:comic_app/pages/my_profile.dart';

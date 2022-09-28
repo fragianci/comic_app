@@ -1,4 +1,4 @@
-import 'package:comic_app/model/comics_data.dart';
+import 'package:comic_app/model/models.dart';
 import 'package:comic_app/widgets/button_favourite.dart';
 import 'package:comic_app/widgets/comic_detail_appbar.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,7 @@ class _ComicDetailState extends State<ComicDetail>
     animation = Tween<double>(begin: 0, end: 3000).animate(controller)
       ..addListener(() {
         setState(() {
-          print('animation');
+          // print('animation');
         });
       });
     controller.forward();
@@ -93,7 +93,7 @@ class _ComicDetailState extends State<ComicDetail>
                             style: TextButton.styleFrom(
                                 padding: EdgeInsets.all(0)),
                           )),
-                      ButtonFavourite(),
+                      ButtonFavourite(comicDetail),
                     ]),
               ),
               if (hasSynopsis)

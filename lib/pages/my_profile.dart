@@ -1,4 +1,4 @@
-import 'package:comic_app/model/button_settings_data.dart';
+import 'package:comic_app/model/models.dart';
 import 'package:comic_app/widgets/profile_header.dart';
 import 'package:comic_app/widgets/user_info.dart';
 import 'package:flutter/material.dart';

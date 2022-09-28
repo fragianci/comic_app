@@ -1,4 +1,4 @@
-import 'package:comic_app/model/comics_data.dart';
+import 'package:comic_app/model/models.dart';
 import 'package:comic_app/pages/home.dart';
 import 'package:flutter/material.dart';
 
@@ -32,8 +32,8 @@ class ComicDetailAppBar extends StatelessWidget {
 
   Align alignMethod(BuildContext context) {
     return Align(
-        alignment: Alignment.centerRight,
-        child: ElevatedButton(
+      alignment: Alignment.centerRight,
+      child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: Colors.transparent,
             shadowColor: Colors.transparent,
@@ -41,22 +41,16 @@ class ComicDetailAppBar extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
             elevation: 0,
           ),
-          onPressed: (){
+          onPressed: () {
             // changeGenre(currentGenre);
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                  Home(currentGenre)
-              )
-            );
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => Home(currentGenre)));
           },
           child: Image.asset(
             'assets/left-arrow-icon.jpeg',
             height: 30,
             width: 30,
-          )
-        ),
-      );
+          )),
+    );
   }
 }
