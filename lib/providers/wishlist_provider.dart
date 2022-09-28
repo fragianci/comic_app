@@ -21,7 +21,7 @@ class Wishlist extends ChangeNotifier {
             wishlist.add(wishlistComic);
           }
         } else {
-          finder = -1;
+          finder = i;
         }
       }
     } else {

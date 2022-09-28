@@ -80,7 +80,6 @@ class ButtonFavouriteState extends State<ButtonFavourite> {
               onPressed: () {
                 setState(() {
                   buttonFavoriteClicked = !buttonFavoriteClicked;
-                  print(buttonFavoriteClicked);
                 });
               },
               // => context.read<Wishlist>().incrementCounter(),
