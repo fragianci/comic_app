@@ -27,8 +27,8 @@ class Wishlist extends ChangeNotifier {
     } else {
       wishlist.add(wishlistComic);
     }
-    for (int i = 0; i < wishlist.length; i++) {
-      print(wishlist[i].title);
+    for (var comic in wishlist) {
+      print(comic.title);
     }
     notifyListeners();
   }
